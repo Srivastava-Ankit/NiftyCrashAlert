@@ -28,4 +28,4 @@ jobs:
           EMAIL_PASSWORD: ${{ secrets.EMAIL_PASS }}
           EMAIL_RECEIVER: ${{ secrets.EMAIL_TO }}
         run: |
-          python nifty_alert.p
+          python nifty_alert.py
