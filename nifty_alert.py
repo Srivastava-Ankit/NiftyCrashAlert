@@ -3,13 +3,14 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from datetime import datetime, timedelta
+import os
 
 # ----------------- CONFIG -----------------
 INDEX = "^NSEI"  # Nifty 50 index
 DROP_ALERT = 1  # percent
-EMAIL_FROM = "ankitsrivastava.nitp@gmail.com"
-EMAIL_PASS = "pans bjdq ltdi ntpa"  # Use Gmail App Password
-EMAIL_TO = "ankitsrivastava.nitp@gmail.com"
+EMAIL_SENDER = os.getenv("EMAIL_SENDER")
+EMAIL_PASSWORD = os.getenv("EMAIL_PASSWORD")
+EMAIL_RECEIVER = os.getenv("EMAIL_RECEIVER")
 
 
 # -----------------------------------------
@@ -31,11 +32,11 @@ def send_email(subject, body):
     """Send email alert"""
     msg = MIMEText(body)
     msg["Subject"] = subject
-    msg["From"] = EMAIL_FROM
-    msg["To"] = EMAIL_TO
+    msg["From"] = EMAIL_SENDER
+    msg["To"] = EMAIL_RECEIVER
 
     with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
-        server.login(EMAIL_FROM, EMAIL_PASS)
+        server.login(EMAIL_SENDER, EMAIL_PASSWORD)
         server.send_message(msg)
 
     print("📧 Email sent successfully!")
