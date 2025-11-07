@@ -34,6 +34,9 @@ def send_email(subject, body):
     msg["Subject"] = subject
     msg["From"] = EMAIL_SENDER
     msg["To"] = EMAIL_RECEIVER
+    print("EMAIL_SENDER -> " + EMAIL_SENDER)
+    print("EMAIL_PASSWORD -> " + EMAIL_PASSWORD)
+    print("EMAIL_RECEIVER -> " + EMAIL_RECEIVER)
 
     with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
         server.login(EMAIL_SENDER, EMAIL_PASSWORD)
