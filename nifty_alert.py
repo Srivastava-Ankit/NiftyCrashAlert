@@ -75,7 +75,7 @@ def main():
 
     # Email alert trigger
     if drop >= DROP_ALERT:
-        subject = f"🚨 Market Crash Alert: Nifty 50 down {drop:.2f}% this month!"
+        subject = f"🚨 Market Crash Alert: Nifty 50 down {drop:.2f}% in past 3 month!"
         body = (
             f"Nifty 50 has declined by {drop:.2f}% in the past 3 month.\n\n"
             f"3 Month High: ₹{month_high:.2f}\n"
