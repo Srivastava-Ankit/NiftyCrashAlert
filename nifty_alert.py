@@ -16,7 +16,7 @@ EMAIL_RECEIVER = os.getenv("EMAIL_RECEIVER")
 # -----------------------------------------
 def get_nifty_data():
     """Fetch last 1 month of Nifty 50 data"""
-    data = yf.download(INDEX, period="1mo", interval="1d", progress=False)
+    data = yf.download(INDEX, period="3mo", interval="1d", progress=False)
     data = data.dropna()  # remove missing values
     return data
 
@@ -77,8 +77,8 @@ def main():
     if drop >= DROP_ALERT:
         subject = f"🚨 Market Crash Alert: Nifty 50 down {drop:.2f}% this month!"
         body = (
-            f"Nifty 50 has declined by {drop:.2f}% in the past month.\n\n"
-            f"Month High: ₹{month_high:.2f}\n"
+            f"Nifty 50 has declined by {drop:.2f}% in the past 3 month.\n\n"
+            f"3 Month High: ₹{month_high:.2f}\n"
             f"Current Price: ₹{current_price:.2f}\n"
             f"Date: {datetime.now():%d-%b-%Y %H:%M}\n\n"
             "Stay alert and review your portfolio!"
