@@ -7,7 +7,7 @@ import os
 
 # ----------------- CONFIG -----------------
 INDEX = "^NSEI"  # Nifty 50 index
-DROP_ALERT = 1  # percent
+DROP_ALERT = 15  # percent
 EMAIL_SENDER = os.getenv("EMAIL_SENDER")
 EMAIL_PASSWORD = os.getenv("EMAIL_PASSWORD")
 EMAIL_RECEIVER = os.getenv("EMAIL_RECEIVER")
